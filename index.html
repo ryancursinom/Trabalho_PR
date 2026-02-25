@@ -33,13 +33,13 @@
             background-color: #4e4caf;
             color: white;
             padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
             display: inline-block;
+
         }
         .btn:hover {
-            background-color: #45a049;
+            background-color: #3d3c93;
         }
         dialog {
             border: none;
@@ -82,7 +82,7 @@
 
         }
         button{
-            background-color: #4CAF50;
+            background-color: #4e4caf;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -114,58 +114,57 @@
         </ul>
     </section>
 
-    <button class="btn">Clique aqui para aprender mais!</button>
+    <a href="aprenda_mais.html" class="btn">Clique aqui para aprender mais!</a>
     <button class="btn-edit">Modificar</button>
 
     <dialog id="editDialog">
-      <div class="modal-cardU">
-        <h1>Editar Aluno</h1>
+        <div class="modal-cardU">
+            <h1>Editar Aluno</h1>
 
-        <form id="editForm">
-          <input type="hidden" id="editId">
+            <form id="editForm">
+                <input type="hidden" id="editId">
 
-          <label>Nome</label>
-          <input type="text" id="editNome">
+                <label>Nome</label>
+                <input type="text" id="editNome">
 
-          <label>Email</label>
-          <input type="email" id="editEmail">
+                <label>Email</label>
+                <input type="email" id="editEmail">
 
-          <label>CPF</label>
-          <input type="text" id="editCpf">
+                <label>CPF</label>
+                <input type="text" id="editCpf">
 
-          <label>Turma</label>
-          <input type="number" id="editTurma">
+                <label>Turma</label>
+                <input type="number" id="editTurma">
 
-          <div class="modal-actions">
-            <button type="button" id="closeEdit">Cancelar</button>
-            <button type="submit" id="saveEdit">Salvar</button>
-          </div>
-        </form>
-      </div>
+                <div class="modal-actions">
+                    <button type="button" id="closeEdit">Cancelar</button>
+                    <button type="submit" id="saveEdit">Salvar</button>
+                </div>
+            </form>
+        </div>
     </dialog>
 </main>
 
 <footer>
     <p>&copy; 2025 Projeto GitHub PR - Todos os direitos reservados.</p>
 </footer>
-  <script>
-      document.addEventListener("DOMContentLoaded", () => {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
 
-    const editDialog = document.getElementById("editDialog");
-    const closeEdit = document.getElementById("closeEdit");
+            const editDialog = document.getElementById("editDialog");
+            const closeEdit = document.getElementById("closeEdit");
 
-    closeEdit.addEventListener("click", () => {
-      editDialog.close();
-    });
+            closeEdit.addEventListener("click", () => {
+                editDialog.close();
+            });
 
-    // BOTÃO EDITAR
-    document.querySelectorAll(".btn-edit").forEach(button => {
-      button.addEventListener("click", () => {
-        editDialog.showModal();
-      });
-    });
-
-  });
+            // BOTÃO EDITAR
+            document.querySelectorAll(".btn-edit").forEach(button => {
+                button.addEventListener("click", () => {
+                editDialog.showModal();
+                });
+            });
+        });
     </script>
 </body>
 </html>
