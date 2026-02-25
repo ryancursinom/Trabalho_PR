@@ -41,6 +41,56 @@
         .btn:hover {
             background-color: #45a049;
         }
+        dialog {
+            border: none;
+            border-radius: 12px;
+            padding: 0px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .modal-cardU {
+            padding: 30px;
+            height: 470px;
+            width: 350px;
+        }
+        .modal-cardU input {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid rgb(201, 201, 201);
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            margin-bottom: 0px;
+            
+        }
+        .modal-actions button{
+            font-size: var(--text-sm) ;
+            background: #32b545;
+            color: white;
+            border: none;
+            width: 110px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+
+        }
+        button{
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -65,11 +115,57 @@
     </section>
 
     <button class="btn">Clique aqui para aprender mais!</button>
+    <button class="btn-edit">Modificar</button>
+
+    <dialog id="editDialog">
+      <div class="modal-cardU">
+        <h1>Editar Aluno</h1>
+
+        <form id="editForm">
+          <input type="hidden" id="editId">
+
+          <label>Nome</label>
+          <input type="text" id="editNome">
+
+          <label>Email</label>
+          <input type="email" id="editEmail">
+
+          <label>CPF</label>
+          <input type="text" id="editCpf">
+
+          <label>Turma</label>
+          <input type="number" id="editTurma">
+
+          <div class="modal-actions">
+            <button type="button" id="closeEdit">Cancelar</button>
+            <button type="submit" id="saveEdit">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
 </main>
 
 <footer>
     <p>&copy; 2025 Projeto GitHub PR - Todos os direitos reservados.</p>
 </footer>
+  <script>
+      document.addEventListener("DOMContentLoaded", () => {
 
+    const editDialog = document.getElementById("editDialog");
+    const closeEdit = document.getElementById("closeEdit");
+
+    closeEdit.addEventListener("click", () => {
+      editDialog.close();
+    });
+
+    // BOTÃO EDITAR
+    document.querySelectorAll(".btn-edit").forEach(button => {
+      button.addEventListener("click", () => {
+        editDialog.showModal();
+      });
+    });
+
+  });
+    </script>
 </body>
 </html>
